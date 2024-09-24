@@ -1,0 +1,37 @@
+.header {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 900;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.header img {
+    width: auto;
+    height: 36px;
+}
+
+:root {
+    --grid-cols: 0;
+    --grid-rows: 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-gap: 0;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    /* background-color: red; */
+    width: 400px;
+    height: 400px;
+}
+
+.grid-item {
+    border: 1px solid black;
+}
+
+.grid-item:hover {
+    background-color: black;
+    transition: all 0.3s ease-out;
+}
