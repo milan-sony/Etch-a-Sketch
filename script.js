@@ -6,6 +6,8 @@ let rows = 16;
 let cols = 16;
 let colorPickerValue = ''
 
+colorPicker.oninput = () => color();
+
 // created a style property named --grid-rows (css)
 gridContainer.style.setProperty('--grid-rows', rows);
 gridContainer.style.setProperty('--grid-cols', cols);

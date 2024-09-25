@@ -34,13 +34,14 @@
             <div class="row justify-content-center">
 
                 <div class="col-lg-6">
-                    <ul class="list-group">
-                        <li class="list-group-item text-center"> <input id="colorPicker" type="color" value="#ff0000" onchange="color()"/>
+                    <ul class="list-group menu-items">
+                        <li class="list-group-item text-center"> <input id="colorPicker" class="color-picker" type="color" value="#ff0000"/>
                         </li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                        <li class="list-group-item">A fourth item</li>
-                        <li class="list-group-item">And a fifth one</li>
+                        <li class="list-group-item"><button class="btn menu-btn">Color</button></li>
+                        <li class="list-group-item"><button class="btn menu-btn">Erase</button></li>
+                        <li class="list-group-item"><button class="btn menu-btn">Clear</button></li>
+                        <li class="list-group-item">  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                        </li>
                     </ul>
                 </div>
                 <div class="col-lg-6 d-flex justify-content-center">
