@@ -1,12 +1,31 @@
 const gridContainer = document.getElementById('gridContainer');
-
 const colorPicker = document.getElementById('colorPicker');
+const colorBtn = document.getElementById('colorBtn');
+const eraseBtn = document.getElementById('eraseBtn');
+const clearBtn = document.getElementById('clearBtn');
 
 let rows = 16;
 let cols = 16;
 let colorPickerValue = ''
 
 colorPicker.oninput = () => color();
+
+function setMenuMode(color){
+    let menuMode = color
+    console.log(menuMode)
+    if(menuMode === 'color'){
+        colorBtn.classList.add('active-btn')
+        eraseBtn.classList.remove('active-btn')
+    }else if(menuMode === 'erase'){
+        colorBtn.classList.remove('active-btn')
+        eraseBtn.classList.add('active-btn')
+    }else{
+        colorBtn.classList.add('active-btn')
+    }
+}
+
+colorBtn.onclick = () => setMenuMode('color');
+eraseBtn.onclick = () => setMenuMode('erase');
 
 // created a style property named --grid-rows (css)
 gridContainer.style.setProperty('--grid-rows', rows);
