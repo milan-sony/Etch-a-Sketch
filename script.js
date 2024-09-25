@@ -10,16 +10,16 @@ let colorPickerValue = ''
 
 colorPicker.oninput = () => color();
 
-function setMenuMode(color){
+function setMenuMode(color) {
     let menuMode = color
     console.log(menuMode)
-    if(menuMode === 'color'){
+    if (menuMode === 'color') {
         colorBtn.classList.add('active-btn')
         eraseBtn.classList.remove('active-btn')
-    }else if(menuMode === 'erase'){
+    } else if (menuMode === 'erase') {
         colorBtn.classList.remove('active-btn')
         eraseBtn.classList.add('active-btn')
-    }else{
+    } else {
         colorBtn.classList.add('active-btn')
     }
 }
@@ -37,14 +37,14 @@ for (let c = 0; c < (rows * cols); c++) {
 };
 
 
-function changeColor(e){
+function changeColor(e) {
     console.log(e)
-    if(e.type == "mouseover"){
+    if (e.type == "mouseover") {
         e.target.style.backgroundColor = colorPickerValue
     }
 }
 
-function color(){
+function color() {
     console.log("Color:", colorPicker.value)
     colorPickerValue = colorPicker.value
 }
