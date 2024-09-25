@@ -6,7 +6,7 @@ const clearBtn = document.getElementById('clearBtn');
 
 let rows = 16;
 let cols = 16;
-let colorPickerValue = ''
+let colorPickerValue = '#000000'
 
 colorPicker.oninput = () => color();
 
@@ -36,7 +36,6 @@ for (let c = 0; c < (rows * cols); c++) {
     gridContainer.addEventListener('mouseover', changeColor)
 };
 
-
 function changeColor(e) {
     console.log(e)
     if (e.type == "mouseover") {
@@ -47,4 +46,8 @@ function changeColor(e) {
 function color() {
     console.log("Color:", colorPicker.value)
     colorPickerValue = colorPicker.value
+}
+
+window.onload = () => {
+    setMenuMode('color')
 }
