@@ -28,7 +28,7 @@ body{
     grid-template-columns: repeat(var(--grid-cols), 1fr);
     width: 400px;
     height: 400px;
-    background-color: white;
+    background-color: red;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -37,7 +37,7 @@ body{
 }
 
 .clear-grid{
-    background-color: yellow;
+    background-color: transparent;
 }
 
 /* Menu */

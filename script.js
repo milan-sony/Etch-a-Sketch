@@ -9,6 +9,7 @@ let defaultMode = 'color';
 
 let rows = 16;
 let cols = 16;
+
 let currentColor = defaultColor;
 let currentMode = defaultMode
 
@@ -24,50 +25,46 @@ function setMenuMode(mode) {
     if (currentMode === 'color') {
         colorBtn.classList.add('active-btn');
         eraseBtn.classList.remove('active-btn');
+        currentColor = colorPicked.value
     } else if (currentMode === 'erase') {
         colorBtn.classList.remove('active-btn');
         eraseBtn.classList.add('active-btn');
-        gridContainer.addEventListener('mouseover', eraseColor);
+        currentColor = 'transparent';
     } else if (currentMode === 'clear') {
-        gridContainer.classList.add('clear-grid')
+        clearGrid();
+        // gridContainer.style.backgroundColor = 'transparent'
     }
     else {
         colorBtn.classList.add('active-btn');
     }
 };
 
-function eraseColor(e) {
-    if (e.type == "mouseover") {
-        e.target.style.backgroundColor = '#ffffff';
-    }
-}
+// created a style property named --grid-rows (css)
+gridContainer.style.setProperty('--grid-rows', rows);
+gridContainer.style.setProperty('--grid-cols', cols);
+for (let c = 0; c < (rows * cols); c++) {
+    let cell = document.createElement("div");
+    gridContainer.appendChild(cell).className = 'grid-item';
+    gridContainer.addEventListener('mouseover', paintColor);
+};
 
-function createGrid() {
-    // created a style property named --grid-rows (css)
-    gridContainer.style.setProperty('--grid-rows', rows);
-    gridContainer.style.setProperty('--grid-cols', cols);
-    for (let c = 0; c < (rows * cols); c++) {
-        let cell = document.createElement("div");
-        gridContainer.appendChild(cell).className = 'grid-item';
-        gridContainer.addEventListener('mouseover', paintColor);
-    };
+function clearGrid(){
+    gridContainer.style.backgroundColor = 'green'
 }
-
 
 function paintColor(e) {
-    console.log(e)
+
     if (e.type == "mouseover") {
         e.target.style.backgroundColor = currentColor;
     }
 }
 
 function pickColor() {
-    console.log("Color:", colorPicked.value);
+    console.log("Color picked:", colorPicked.value);
     currentColor = colorPicker.value;
 }
 
 window.onload = () => {
     setMenuMode('color');
     currentColor = defaultColor
-    createGrid();
 }
