@@ -3,6 +3,8 @@ const colorPicked = document.getElementById('colorPicker');
 const colorBtn = document.getElementById('colorBtn');
 const eraseBtn = document.getElementById('eraseBtn');
 const clearBtn = document.getElementById('clearBtn');
+const slider = document.getElementById('slider');
+const size = document.getElementById('size');
 
 let defaultColor = '#000000';
 let defaultMode = 'color';
@@ -18,6 +20,12 @@ eraseBtn.onclick = () => setMenuMode('erase');
 clearBtn.onclick = () => setMenuMode('clear');
 
 colorPicker.oninput = () => pickColor();
+slider.oninput = () => sliderMove();
+
+function sliderMove(){
+    console.log(slider.value)
+    size.innerText = slider.value;
+}
 
 function setMenuMode(mode) {
     currentMode = mode
@@ -62,6 +70,7 @@ function paintColor(e) {
 function pickColor() {
     console.log("Color picked:", colorPicked.value);
     currentColor = colorPicker.value;
+    setMenuMode('color')
 }
 
 window.onload = () => {
