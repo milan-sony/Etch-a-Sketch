@@ -76,4 +76,6 @@ function pickColor() {
 window.onload = () => {
     setMenuMode('color');
     currentColor = defaultColor
+    size.innerText = slider.value;
+
 }
